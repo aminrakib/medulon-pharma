@@ -81,8 +81,8 @@ export function Hero() {
           </h2>
 
           <p className="mx-auto mb-10 max-w-2xl text-base text-slate-300 md:text-lg">
-            Trusted medicines and healthcare solutions. Serving Madhupur, Nagaon, Assam
-            with care, quality, and commitment since 2010.
+            Trusted medicines and healthcare solutions. Delivering
+            Bangalore-grade quality to Madhupur, Nagaon, Assam.
           </p>
 
           {/* Dual CTA System - Mobile-First */}
