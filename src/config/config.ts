@@ -8,8 +8,6 @@ export class Config {
   orgPhoneNumber = "+91 93653 99473";
   orgAltPhoneNumber = "+91 93653 99473";
   orgEmail = "support@medulonpharma.in";
-  orgAddresss =
-    "MADHUPUR, P.O. MADHUPUR, P.S. SADAR, DIST- NAGAON (ASSAM) PIN- 782003";
   orgFacebookURL = "/";
   orgLinkedinURL = "/";
   orgInstagramURL = "/";
