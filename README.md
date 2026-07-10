@@ -1,73 +1,143 @@
-# React + TypeScript + Vite
+# MEDULON PHARMA PRIVATE LIMITED
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official website for MEDULON PHARMA PRIVATE LIMITED — a Bangalore-based pharmaceutical company with a clinic and store in Madhupur, Nagaon, Assam.
 
-Currently, two official plugins are available:
+**Live Site:** [https://medulonpharma.in](https://medulonpharma.in)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 19 |
+| Language | TypeScript 5.9 |
+| Build Tool | Vite 7 |
+| Styling | Tailwind CSS v4 |
+| UI Components | shadcn/ui (New York style) |
+| Animation | Framer Motion |
+| Icons | Lucide React + React Icons |
+| Forms | EmailJS Browser |
+| Notifications | React Hot Toast |
+| Package Manager | Bun |
+| Deployment | GitHub Pages (GitHub Actions) |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```
+src/
+├── components/
+│   ├── ui/              # shadcn/ui primitives (Button, Card, Input, Textarea)
+│   ├── AboutSection.tsx # Bangalore HQ + Assam Store story
+│   ├── ClinicInfo.tsx   # 13 doctors profile + schedule
+│   ├── Contact.tsx      # Contact form (EmailJS) + map + info
+│   ├── ContactCTA.tsx   # Floating WhatsApp + Phone buttons
+│   ├── Footer.tsx       # Site footer with links
+│   ├── Hero.tsx         # Landing hero with CTAs
+│   ├── Navbar.tsx       # Fixed navigation bar
+│   ├── Reveal.tsx       # Scroll animation wrapper
+│   └── StorePreview.tsx # Product catalog with filters
+├── config/
+│   └── config.ts        # Centralized config (phone, email, addresses, EmailJS)
+├── lib/
+│   └── utils.ts         # cn() helper for Tailwind class merging
+├── pages/
+│   └── Home.tsx         # Page composition
+├── App.tsx
+├── main.tsx
+└── index.css            # Tailwind v4 entry point
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+public/
+├── products/            # MEDULON product images
+├── hero/                # Hero background images
+└── favicon assets
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Available Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | Description |
+|---------|-------------|
+| `bun install` | Install dependencies |
+| `bun run dev` | Start development server (`http://localhost:5173`) |
+| `bun run build` | Type-check and build for production (`dist/`) |
+| `bun run preview` | Preview production build locally |
+| `bun run lint` | Run ESLint |
+
+---
+
+## Configuration
+
+All business details are centralized in `src/config/config.ts`:
+
+- Phone numbers (`orgPhoneNumber`, `orgAltPhoneNumber`)
+- WhatsApp number (`phoneWhatsAppCTA`)
+- Email address (`orgEmail`)
+- Assam store address (`orgAddresss`)
+- Bangalore marketing HQ address (`marketingAddress`)
+- Social media URLs
+
+### EmailJS Setup
+
+Contact form uses EmailJS. Set these in `.env`:
+
 ```
+VITE_EMAIL_JS_SERVICE_ID=your_service_id
+VITE_EMAIL_JS_TEMPLATE_ID=your_template_id
+VITE_EMAIL_JS_PUBLIC_KEY=your_public_key
+```
+
+---
+
+## Deployment
+
+This project deploys automatically to **GitHub Pages** via GitHub Actions.
+
+### GitHub Actions Workflow
+
+File: `.github/workflows/deploy.yml`
+
+**Triggers:**
+- Push to `main` branch
+- Manual dispatch (`workflow_dispatch`)
+
+**Steps:**
+1. Checkout code
+2. Setup Bun runtime
+3. Install dependencies (`bun install`)
+4. Build (`bun run build`)
+5. Upload `dist/` artifact to GitHub Pages
+6. Deploy
+
+### Custom Domain
+
+The site is configured for `medulonpharma.in`. To activate:
+
+1. Go to **GitHub Repo → Settings → Pages → Custom domain**
+2. Enter: `medulonpharma.in`
+3. GitHub will create a `CNAME` file automatically
+4. Update your DNS: add a **CNAME record** pointing `medulonpharma.in` → `yourusername.github.io`
+
+---
+
+## Key Features
+
+- **Mobile-first responsive design** — Tailwind v4 with `sm:`, `md:`, `lg:` breakpoints
+- **13 Doctor profiles** — Real qualifications, registration numbers, and specialties
+- **9 MEDULON products** — Real product images with working category filters (React state)
+- **WhatsApp ordering** — One-click product order via WhatsApp API with pre-filled messages
+- **Prescription upload** — Rx-marked products require prescription verification via WhatsApp
+- **Dual-location branding** — Prominently features Bangalore HQ + Assam store to build trust
+- **EmailJS contact form** — Appointment and inquiry submissions
+- **SEO-ready** — JSON-LD schema with all 13 doctors, Open Graph, Twitter Cards, rich keywords
+- **Scroll animations** — Framer Motion `Reveal` component throughout all sections
+- **Fixed floating CTAs** — WhatsApp and Phone buttons always accessible
+
+---
+
+## License
+
+Private — MEDULON PHARMA PRIVATE LIMITED. All rights reserved.
