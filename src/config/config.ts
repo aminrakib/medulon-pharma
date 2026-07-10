@@ -17,7 +17,7 @@ export class Config {
   // CORPORATE / MARKETING HQ (Bangalore)
   marketingAddress =
     "No.33, Ist Floor, 1st Main, Ganganagar Gramatana, HMT Layout, CBI Road, Bangalore - 560032";
-  marketingLabel = "A Bangalore-Based Pharmaceutical Company Serving Assam";
+  marketingLabel = "A Bangalore-Based Pharmaceutical Company";
 
   // CONTACT CTA
   phoneWhatsAppCTA = "+919365399473";

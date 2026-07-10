@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 import { Config } from "../config/config";
-import { Phone, Mail, MapPin, Clock, Send, Building2, Store } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Building2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -25,11 +25,11 @@ export function Contact() {
         config.emailJsPublicKey,
       )
       .then(() => {
-        toast.success("Appointment request sent successfully!");
+        toast.success("Message sent successfully!");
         formRef.current?.reset();
       })
       .catch(() => {
-        toast.error("Failed to send request. Please try again later.");
+        toast.error("Failed to send message. Please try again later.");
       })
       .finally(() => setIsSubmitting(false));
   };
@@ -58,15 +58,15 @@ export function Contact() {
 
           {/* Two-Column Layout */}
           <div className="flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12">
-            {/* Column A: Info & Maps */}
+            {/* Column A: Bangalore HQ Info */}
             <Reveal>
               <div className="flex flex-col gap-6">
-                {/* Store Card - Assam (Primary) */}
+                {/* HQ Card - Bangalore */}
                 <div className="flex flex-col gap-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:p-6">
                   <div className="flex items-center gap-2">
-                    <Store className="h-5 w-5 text-blue-600" />
+                    <Building2 className="h-5 w-5 text-emerald-600" />
                     <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900">
-                      Your Local Store
+                      Corporate Headquarters
                     </h3>
                   </div>
 
@@ -79,7 +79,7 @@ export function Contact() {
                         Address
                       </h4>
                       <p className="mt-1 text-sm leading-snug text-slate-500">
-                        {config.orgAddresss}
+                        {config.marketingAddress}
                       </p>
                     </div>
                   </div>
@@ -104,65 +104,7 @@ export function Contact() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="rounded-xl bg-amber-50 p-3 text-amber-600">
-                      <Clock className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold uppercase tracking-tight text-slate-900">
-                        Operational Hours
-                      </h4>
-                      <p className="mt-1 text-sm text-slate-500">
-                        Monday — Saturday
-                      </p>
-                      <p className="text-sm font-medium italic text-slate-700">
-                        08:00 AM — 10:00 PM
-                      </p>
-                      <p className="mt-1 text-sm text-slate-500">
-                        Sunday
-                      </p>
-                      <p className="text-sm font-medium italic text-slate-700">
-                        09:00 AM — 02:00 PM
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Assam Google Map */}
-                <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-                  <iframe
-                    className="w-full aspect-video md:aspect-square"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.5830437943244!2d92.68560267512448!3d26.07278029550783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3744d3f1f1f1f1f1%3A0x1f1f1f1f1f1f1f1f!2sMadhupur%2C%20Nagaon%2C%20Assam!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="MEDULON PHARMA Store Location"
-                  />
-                </div>
-
-                {/* HQ Card - Bangalore (Secondary) */}
-                <div className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-5 shadow-sm md:p-6">
-                  <div className="flex items-center gap-2">
-                    <Building2 className="h-5 w-5 text-emerald-600" />
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900">
-                      Corporate Headquarters
-                    </h3>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-xl bg-slate-200 p-3 text-slate-600">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold uppercase tracking-tight text-slate-900">
-                        Bangalore Office
-                      </h4>
-                      <p className="mt-1 text-sm leading-snug text-slate-500">
-                        {config.marketingAddress}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-xl bg-slate-200 p-3 text-slate-600">
+                    <div className="rounded-xl bg-slate-100 p-3 text-slate-600">
                       <Mail className="h-5 w-5" />
                     </div>
                     <div>
@@ -179,10 +121,21 @@ export function Contact() {
                     </div>
                   </div>
                 </div>
+
+                {/* Bangalore Map */}
+                <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+                  <iframe
+                    className="w-full aspect-video md:aspect-square"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.034567890123!2d77.55322607507816!3d13.070822987253697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1681e0e4a7f5%3A0x2f3d87c1e5c5b8a0!2sBangalore%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="MEDULON PHARMA Bangalore Location"
+                  />
+                </div>
               </div>
             </Reveal>
 
-            {/* Column B: Appointment Form */}
+            {/* Column B: Inquiry Form */}
             <Reveal>
               <form
                 ref={formRef}
@@ -191,10 +144,10 @@ export function Contact() {
               >
                 <div className="mb-2">
                   <h3 className="text-lg font-bold text-slate-900 md:text-xl">
-                    Book an Appointment
+                    Send Us a Message
                   </h3>
                   <p className="mt-1 text-sm text-slate-500">
-                    Fill in your details and we will confirm your slot shortly.
+                    For product inquiries, bulk orders, or partnership discussions.
                   </p>
                 </div>
 
@@ -239,23 +192,23 @@ export function Contact() {
 
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                    Preferred Service
+                    Inquiry Type
                   </label>
                   <Input
                     type="text"
                     name="service"
-                    placeholder="e.g., Medicine Order, Doctor Consultation"
+                    placeholder="e.g., Medicine Order, Bulk Inquiry, Partnership"
                     className="h-12 rounded-xl border-slate-200 bg-white px-4 text-sm"
                   />
                 </div>
 
                 <div className="flex-1 space-y-1.5">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                    Message / Symptoms *
+                    Message / Details *
                   </label>
                   <Textarea
                     name="message"
-                    placeholder="Describe your symptoms or reason for visit..."
+                    placeholder="Describe your inquiry or order requirements..."
                     required
                     className="min-h-[120px] flex-1 rounded-xl border-slate-200 bg-white px-4 py-3 text-sm"
                   />
@@ -266,7 +219,7 @@ export function Contact() {
                   disabled={isSubmitting}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 py-4 text-sm font-bold text-white shadow-lg transition-all hover:bg-emerald-700 active:scale-95 disabled:opacity-50"
                 >
-                  {isSubmitting ? "Sending..." : "Submit Appointment Request"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   {!isSubmitting && <Send className="h-4 w-4" />}
                 </button>
               </form>

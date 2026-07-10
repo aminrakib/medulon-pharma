@@ -80,9 +80,8 @@ export function Hero() {
             <span className="text-emerald-400">Health & Wellness.</span>
           </h2>
 
-          <p className="mx-auto mb-10 max-w-2xl text-base text-slate-300 md:text-lg">
-            Trusted medicines and healthcare solutions. Delivering
-            Bangalore-grade quality to Madhupur, Nagaon, Assam.
+           <p className="mx-auto mb-10 max-w-2xl text-base text-slate-300 md:text-lg">
+            Every MEDULON box carries our Bangalore address — because trust should never be hidden.
           </p>
 
           {/* Dual CTA System - Mobile-First */}
@@ -107,7 +106,7 @@ export function Hero() {
               className="h-14 w-full border-white/20 bg-white/5 px-8 text-base font-bold text-white hover:bg-white hover:text-slate-950 md:w-auto md:px-10 md:text-lg"
               onClick={() =>
                 document
-                  .getElementById("clinic")
+                  .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
@@ -128,7 +127,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-              <span>Trusted in Assam</span>
+              <span>WHO-GMP Certified</span>
             </div>
           </div>
         </Reveal>

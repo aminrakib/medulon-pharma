@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import { Config } from "@/config/config";
-import { MapPin, Building2, Store, ShieldCheck, BadgeCheck } from "lucide-react";
+import { MapPin, Building2, BadgeCheck, Factory, Truck } from "lucide-react";
 
 export function AboutSection() {
   const config = new Config();
@@ -17,90 +17,59 @@ export function AboutSection() {
               {config.marketingLabel}
             </h3>
             <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
-              Bringing metro-quality pharmaceuticals to your doorstep in Assam.
+              Headquartered in Bangalore, India's pharmaceutical hub.
               Every product box displays our Bangalore address — transparency you can verify.
             </p>
           </div>
         </Reveal>
 
-        {/* Two-Column Story Cards */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-          {/* Bangalore HQ Card */}
-          <Reveal>
-            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-8">
-              <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-700">
-                <Building2 className="h-4 w-4" />
-                Corporate Headquarters
-              </div>
+        {/* Bangalore HQ Card — Full Width */}
+        <Reveal>
+          <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-10">
+            <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-700">
+              <Building2 className="h-4 w-4" />
+              Corporate Headquarters
+            </div>
 
-              <h4 className="mb-3 text-xl font-bold text-slate-900 md:text-2xl">
-                Bangalore — Where It All Begins
-              </h4>
+            <h4 className="mb-4 text-2xl font-bold text-slate-900 md:text-3xl">
+              Bangalore — Where Quality Begins
+            </h4>
 
-              <p className="mb-5 text-sm leading-relaxed text-slate-600">
-                MEDULON PHARMA PRIVATE LIMITED is headquartered in Bangalore,
-                India's pharma innovation hub. Our corporate office oversees
-                stringent quality control, regulatory compliance, and nationwide
-                distribution — ensuring every product meets metro-grade standards.
-              </p>
+            <p className="mb-6 text-base leading-relaxed text-slate-600">
+              MEDULON PHARMA PRIVATE LIMITED is headquartered in Bangalore,
+              India's pharmaceutical innovation hub. Our corporate office oversees
+              stringent quality control, regulatory compliance, and nationwide
+              distribution — ensuring every product meets metro-grade standards.
+            </p>
 
-              <div className="mb-4 flex items-start gap-3 rounded-xl bg-white p-4 border border-slate-100">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Address
-                  </p>
-                  <p className="mt-1 text-sm font-semibold text-slate-800">
-                    {config.marketingAddress}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-auto flex items-center gap-2 text-xs font-bold text-emerald-700">
-                <BadgeCheck className="h-4 w-4" />
-                WHO-GMP Certified Company
+            <div className="mb-6 flex items-start gap-4 rounded-xl bg-white p-5 border border-slate-100">
+              <MapPin className="mt-0.5 h-6 w-6 shrink-0 text-emerald-600" />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Registered Address
+                </p>
+                <p className="mt-1 text-base font-semibold text-slate-800">
+                  {config.marketingAddress}
+                </p>
               </div>
             </div>
-          </Reveal>
 
-          {/* Assam Store Card */}
-          <Reveal>
-            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-              <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-blue-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-blue-700">
-                <Store className="h-4 w-4" />
-                Your Local Store
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="flex items-center gap-2 text-sm font-bold text-emerald-700">
+                <BadgeCheck className="h-5 w-5" />
+                WHO-GMP Certified
               </div>
-
-              <h4 className="mb-3 text-xl font-bold text-slate-900 md:text-2xl">
-                Madhupur, Nagaon — At Your Service
-              </h4>
-
-              <p className="mb-5 text-sm leading-relaxed text-slate-600">
-                Our local store brings MEDULON PHARMA products directly to Assam.
-                No long waits, no shipping hassles — just walk in, consult with
-                our pharmacist, and get genuine medicines with Bangalore-backed
-                quality assurance.
-              </p>
-
-              <div className="mb-4 flex items-start gap-3 rounded-xl bg-slate-50 p-4 border border-slate-100">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Address
-                  </p>
-                  <p className="mt-1 text-sm font-semibold text-slate-800">
-                    {config.orgAddresss}
-                  </p>
-                </div>
+              <div className="flex items-center gap-2 text-sm font-bold text-emerald-700">
+                <Factory className="h-5 w-5" />
+                Quality Manufacturing
               </div>
-
-              <div className="mt-auto flex items-center gap-2 text-xs font-bold text-blue-700">
-                <ShieldCheck className="h-4 w-4" />
-                Walk-ins & WhatsApp Orders Welcome
+              <div className="flex items-center gap-2 text-sm font-bold text-emerald-700">
+                <Truck className="h-5 w-5" />
+                Pan-India Distribution
               </div>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
 
         {/* Trust Banner */}
         <Reveal>

@@ -27,15 +27,11 @@ export function Footer() {
                 MEDULON PHARMA PRIVATE LIMITED
               </span>
               <br />
-              A Bangalore-Based Pharmaceutical Company Serving Assam.
+              A Bangalore-Based Pharmaceutical Company.
               <br />
               <br />
               <span className="text-xs text-slate-500">
-                Bangalore HQ: {config.marketingAddress}
-              </span>
-              <br />
-              <span className="text-xs text-slate-500">
-                Assam Store: {config.orgAddresss}
+                {config.marketingAddress}
               </span>
             </p>
             <div className="flex gap-4">
@@ -68,7 +64,7 @@ export function Footer() {
               Navigation
             </h3>
             <ul className="flex flex-col gap-4 text-slate-400 text-sm">
-              {["Store", "Clinic", "Contact"].map((item) => (
+              {["Store", "About", "Contact"].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
@@ -95,7 +91,7 @@ export function Footer() {
             <div className="flex flex-col gap-5 text-slate-400 text-sm">
               <div className="flex items-start gap-3">
                 <MapPin className="text-emerald-500 shrink-0 h-5 w-5" />
-                <span className="leading-relaxed">{config.orgAddresss}</span>
+                <span className="leading-relaxed">{config.marketingAddress}</span>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="text-emerald-500 shrink-0 h-5 w-5 mt-0.5" />
@@ -131,11 +127,10 @@ export function Footer() {
         <Reveal>
           <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
             <h3 className="text-white font-bold mb-3 text-lg">
-              Need Medicines?
+              Get In Touch
             </h3>
             <p className="text-slate-400 text-xs mb-5 leading-relaxed">
-              Order quality medicines online or visit our store. Our team is
-              ready to serve you with care and compassion.
+              For product inquiries, orders, or partnership opportunities.
             </p>
             <a
               href="#contact"
