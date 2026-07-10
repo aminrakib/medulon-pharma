@@ -108,12 +108,12 @@ export function Navbar() {
                 >
                   {config.orgPhoneNumber}
                 </a>
-                <a
+                {/* <a
                   href={`tel:${config.orgAltPhoneNumber}`}
                   className="text-lg font-bold text-slate-950 leading-none"
                 >
                   {config.orgAltPhoneNumber}
-                </a>
+                </a> */}
               </div>
             </div>
 

@@ -28,7 +28,8 @@ export function Footer() {
               </span>
               <br />
               A Bangalore-Based Pharmaceutical Company Serving Assam.
-              <br /><br />
+              <br />
+              <br />
               <span className="text-xs text-slate-500">
                 Bangalore HQ: {config.marketingAddress}
               </span>
@@ -105,12 +106,12 @@ export function Footer() {
                   >
                     {config.orgPhoneNumber}
                   </a>
-                  <a
+                  {/* <a
                     href={`tel:${config.orgAltPhoneNumber}`}
                     className="hover:text-white transition-colors"
                   >
                     {config.orgAltPhoneNumber}
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <div className="flex items-center gap-3">
