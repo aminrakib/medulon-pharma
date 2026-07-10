@@ -126,7 +126,7 @@ export function Contact() {
                 <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
                   <iframe
                     className="w-full aspect-video md:aspect-square"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.034567890123!2d77.55322607507816!3d13.070822987253697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1681e0e4a7f5%3A0x2f3d87c1e5c5b8a0!2sBangalore%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.034567890123!2d77.5905718!3d13.0275463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1681e0e4a7f5%3A0x2f3d87c1e5c5b8a0!2sGanganagar%2C%20Bangalore!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="MEDULON PHARMA Bangalore Location"
