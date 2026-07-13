@@ -7,7 +7,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Store", href: "#store" },
+    { name: "Products", href: "#products" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ];
@@ -22,9 +22,9 @@ export function Navbar() {
             alt="MEDULON PHARMA Logo"
             className="h-8 w-auto md:h-10"
           />
-          <span className="text-xl font-black tracking-tighter text-slate-600">
+          {/* <span className="text-xl font-black tracking-tighter text-slate-600">
             MEDULON PHARMA
-          </span>
+          </span> */}
         </a>
 
         {/* Desktop Links - Visible from MD (Tablets) up */}

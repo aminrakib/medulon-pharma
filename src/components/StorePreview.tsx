@@ -7,13 +7,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Config } from "@/config/config";
-import { Pill, Heart, Activity, ShoppingCart, FileText, ShieldCheck } from "lucide-react";
+import { Pill, Heart, Activity, MessageCircle, ShieldCheck } from "lucide-react";
 
 interface Product {
   id: number;
   name: string;
-  description: string;
+  composition: string;
+  indications: string;
+  dosageForm: string;
+  packaging?: string;
   category: string;
   image: string;
   rx: boolean;
@@ -22,40 +26,50 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: "Medurab-D Capsules",
-    description: "Rabeprazole 20mg + Domperidone 30mg. For acid reflux, GERD, gastritis & bloating.",
+    name: "Medurab-D",
+    composition: "Rabeprazole 20mg + Domperidone 30mg",
+    indications: "Acid reflux, GERD, gastritis & bloating",
+    dosageForm: "Capsule",
     category: "Gastrointestinal",
     image: "/products/medurab-d.png",
     rx: true,
   },
   {
     id: 2,
-    name: "Altramed-SP Tablets",
-    description: "Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg. Pain & inflammation relief.",
+    name: "Altramed-SP",
+    composition: "Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg",
+    indications: "Pain & inflammation relief",
+    dosageForm: "Tablet",
     category: "Pain Relief",
     image: "/products/altramed-sp.png",
     rx: true,
   },
   {
     id: 3,
-    name: "Medugold Capsules",
-    description: "Lycopene with Multivitamins & Antioxidants. Daily immunity & vitality booster.",
+    name: "Medugold",
+    composition: "Lycopene with Multivitamins & Antioxidants",
+    indications: "Daily immunity & vitality booster",
+    dosageForm: "Capsule",
     category: "Wellness",
     image: "/products/medugold.png",
     rx: false,
   },
   {
     id: 4,
-    name: "Meduraft Oral Suspension",
-    description: "Sodium Alginate + Sodium Bicarbonate + Calcium Carbonate. Fast relief from acidity & heartburn.",
+    name: "Meduraft",
+    composition: "Sodium Alginate + Sodium Bicarbonate + Calcium Carbonate",
+    indications: "Fast relief from acidity & heartburn",
+    dosageForm: "Oral Suspension",
     category: "Gastrointestinal",
     image: "/products/meduraft-bottle.jpg",
     rx: false,
   },
   {
     id: 5,
-    name: "Medubone Tablets",
-    description: "Calcium Carbonate 500mg + Vitamin D3 250 IU. Strong bones, teeth & daily calcium support.",
+    name: "Medubone",
+    composition: "Calcium Carbonate 500mg + Vitamin D3 250 IU",
+    indications: "Strong bones, teeth & daily calcium support",
+    dosageForm: "Tablet",
     category: "Wellness",
     image: "/products/medubone.png",
     rx: false,
@@ -63,7 +77,10 @@ const products: Product[] = [
   {
     id: 6,
     name: "Medurab-D (Alt Pack)",
-    description: "Rabeprazole Sodium (Enteric Coated) + Domperidone (Sustained Release) Capsules. 10x10 pack.",
+    composition: "Rabeprazole Sodium (Enteric Coated) + Domperidone (Sustained Release)",
+    indications: "Acid reflux, GERD, gastritis & bloating",
+    dosageForm: "Capsule",
+    packaging: "10x10 pack",
     category: "Gastrointestinal",
     image: "/products/medurab-d-alt.png",
     rx: true,
@@ -71,7 +88,10 @@ const products: Product[] = [
   {
     id: 7,
     name: "Altramed-SP (Info Pack)",
-    description: "Triple action pain relief: analgesic, anti-inflammatory & enzymatic. 10x10 tablets.",
+    composition: "Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg",
+    indications: "Triple action pain relief: analgesic, anti-inflammatory & enzymatic",
+    dosageForm: "Tablet",
+    packaging: "10x10 tablets",
     category: "Pain Relief",
     image: "/products/altramed-sp-info.png",
     rx: true,
@@ -79,7 +99,9 @@ const products: Product[] = [
   {
     id: 8,
     name: "Meduraft Double Action",
-    description: "Double action formula for heartburn, acid indigestion & gastric reflux. Sugar-free mint flavour.",
+    composition: "Sodium Alginate + Sodium Bicarbonate + Calcium Carbonate",
+    indications: "Double action formula for heartburn, acid indigestion & gastric reflux. Sugar-free mint flavour",
+    dosageForm: "Oral Suspension",
     category: "Gastrointestinal",
     image: "/products/meduraft-info.png",
     rx: false,
@@ -87,7 +109,9 @@ const products: Product[] = [
   {
     id: 9,
     name: "Medubone Complete",
-    description: "Calcium Carbonate + Vitamin D3 Tablets IP. Strong bones, better absorption, daily support.",
+    composition: "Calcium Carbonate + Vitamin D3 Tablets IP",
+    indications: "Strong bones, better absorption, daily support",
+    dosageForm: "Tablet",
     category: "Wellness",
     image: "/products/medubone-info.jpg",
     rx: false,
@@ -112,26 +136,26 @@ function getCategoryColor(category: string): string {
 function getCategoryIcon(category: string) {
   switch (category) {
     case "Gastrointestinal":
-      return <Pill className="h-5 w-5" />;
+      return <Pill className="h-4 w-4" />;
     case "Pain Relief":
-      return <Activity className="h-5 w-5" />;
+      return <Activity className="h-4 w-4" />;
     case "Wellness":
-      return <Heart className="h-5 w-5" />;
+      return <Heart className="h-4 w-4" />;
     default:
-      return <Pill className="h-5 w-5" />;
+      return <Pill className="h-4 w-4" />;
   }
 }
 
-function getWhatsAppLink(phone: string, product: Product): string {
+function getProductEnquiryLink(phone: string, product: Product): string {
   const message = encodeURIComponent(
-    `Hi MEDULON PHARMA, I would like to order:\n\n${product.name}\n${product.description}\n\nPlease confirm availability and delivery options.`
+    `Hi MEDULON PHARMA, I would like to enquire about ${product.name} (${product.composition}). Please share details on availability, pricing, and minimum order quantity.`
   );
   return `https://wa.me/${phone}?text=${message}`;
 }
 
-function getPrescriptionLink(phone: string): string {
+function getDistributionWhatsAppLink(phone: string): string {
   const message = encodeURIComponent(
-    `Hi MEDULON PHARMA, I have a prescription to upload. Can you guide me through the process or I can share the prescription details here for ordering.`
+    `Hi MEDULON PHARMA, I'm interested in distribution partnership with your company. Please share product list, pricing, and terms.`
   );
   return `https://wa.me/${phone}?text=${message}`;
 }
@@ -147,7 +171,7 @@ export function StorePreview() {
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="store" className="scroll-mt-20 bg-slate-50 py-16 md:py-24">
+    <section id="products" className="scroll-mt-20 bg-slate-50 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal>
           <div className="mb-12 text-center md:mb-16">
@@ -155,11 +179,11 @@ export function StorePreview() {
               Our Products
             </h2>
             <h3 className="text-3xl font-black text-slate-950 md:text-4xl lg:text-5xl">
-              MEDULON Product Catalog
+              MEDULON Product Portfolio
             </h3>
             <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600">
-              Browse our wide range of MEDULON PHARMA products. Order via WhatsApp for quick home delivery.
-              All prescription items require a valid doctor's prescription.
+              Quality pharmaceutical range for healthcare professionals,
+              pharmacies, and distributors across India.
             </p>
           </div>
         </Reveal>
@@ -207,7 +231,7 @@ export function StorePreview() {
                   {/* Rx Badge */}
                   {product.rx && (
                     <div className="absolute top-3 left-3 rounded-md bg-red-600 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
-                      Rx Required
+                      Rx
                     </div>
                   )}
                   {/* Category Badge */}
@@ -225,38 +249,52 @@ export function StorePreview() {
                   <CardTitle className="text-lg font-bold text-slate-900 md:text-xl">
                     {product.name}
                   </CardTitle>
+                  <div className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-600">
+                    {product.dosageForm}
+                  </div>
                 </CardHeader>
 
                 <CardContent className="flex-1 pb-4">
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    {product.description}
-                  </p>
-                  <p className="mt-2 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                    Marketed by MEDULON PHARMA, Bangalore
-                  </p>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Composition
+                      </p>
+                      <p className="text-sm font-semibold text-slate-800">
+                        {product.composition}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Indications
+                      </p>
+                      <p className="text-sm text-slate-600">
+                        {product.indications}
+                      </p>
+                    </div>
+                    {product.packaging && (
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                          Packaging
+                        </p>
+                        <p className="text-sm font-semibold text-slate-800">
+                          {product.packaging}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </CardContent>
 
                 <CardFooter className="flex flex-col gap-2 pt-0 pb-5 px-5">
                   <a
-                    href={getWhatsAppLink(whatsappNumber, product)}
+                    href={getProductEnquiryLink(whatsappNumber, product)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-3.5 text-sm font-bold text-white transition-all hover:bg-emerald-700 active:scale-95"
                   >
-                    <ShoppingCart className="h-4 w-4" />
-                    Order via WhatsApp
+                    <MessageCircle className="h-4 w-4" />
+                    Enquire on WhatsApp
                   </a>
-                  {product.rx && (
-                    <a
-                      href={getPrescriptionLink(whatsappNumber)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-600 transition-all hover:border-emerald-300 hover:text-emerald-700"
-                    >
-                      <FileText className="h-3.5 w-3.5" />
-                      Upload Prescription
-                    </a>
-                  )}
                 </CardFooter>
               </Card>
             </Reveal>
@@ -272,25 +310,40 @@ export function StorePreview() {
           </div>
         )}
 
-        {/* Prescription Banner */}
+        {/* Distribution Banner */}
         <Reveal>
           <div className="mt-12 rounded-2xl bg-slate-900 p-6 text-center text-white md:mt-16 md:p-10">
             <h4 className="mb-3 text-xl font-bold md:text-2xl">
-              Have a Prescription?
+              Interested in Distribution or Bulk Supply?
             </h4>
             <p className="mx-auto mb-6 max-w-xl text-sm text-slate-400 md:text-base">
-              Upload your prescription via WhatsApp and our pharmacist will verify and fulfill your order safely.
-              All Rx-marked products require a valid doctor's prescription.
+              Partner with MEDULON PHARMA for quality medicines across India.
+              Contact us for pricing, availability, and partnership opportunities.
             </p>
-            <a
-              href={getPrescriptionLink(whatsappNumber)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-8 py-4 text-sm font-bold text-slate-950 transition-all hover:bg-emerald-400 active:scale-95"
-            >
-              <FileText className="h-5 w-5" />
-              Send Prescription on WhatsApp
-            </a>
+            <div className="flex w-full flex-col items-stretch justify-center gap-4 md:flex-row md:items-center">
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-12 w-full border-white/20 bg-white/5 px-8 text-base font-bold text-white hover:bg-white hover:text-slate-950 md:w-auto md:px-10"
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Contact Us
+              </Button>
+
+              <a
+                href={getDistributionWhatsAppLink(whatsappNumber)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-8 py-3.5 text-base font-bold text-slate-950 transition-all hover:bg-emerald-400 active:scale-95 md:w-auto md:px-10"
+              >
+                <MessageCircle className="h-5 w-5" />
+                Enquire on WhatsApp
+              </a>
+            </div>
           </div>
         </Reveal>
       </div>

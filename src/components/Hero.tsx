@@ -22,7 +22,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden bg-slate-950 px-6 pt-24 pb-20 text-white"
+      className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden bg-slate-950 px-6 pt-28 pb-24 text-white"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -46,64 +46,48 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-20 mx-auto w-full max-w-4xl text-center">
         <Reveal>
-          {/* Emergency Touch-to-Call Badge */}
-          <a
-            href={`tel:${config.orgPhoneNumber}`}
-            className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full bg-red-600/90 px-5 py-3 text-sm font-bold text-white shadow-lg backdrop-blur-sm transition-all hover:bg-red-500 hover:shadow-xl active:scale-95"
-          >
-            <span className="relative flex h-3 w-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
-              <span className="relative inline-flex h-3 w-3 rounded-full bg-white" />
-            </span>
-            <Phone className="h-4 w-4" />
-            Call: {config.orgPhoneNumber}
-          </a>
-
-          {/* Brand Header */}
-          <h1 className="mb-3 text-3xl font-black tracking-tighter md:text-6xl lg:text-7xl">
+          {/* Brand Pre-Title */}
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400">
             MEDULON PHARMA
-          </h1>
-
-          <p className="mb-4 text-sm font-bold tracking-[0.3em] uppercase text-emerald-400">
-            PRIVATE LIMITED
           </p>
 
+          {/* Value Proposition Headline */}
+          <h1 className="mb-4 text-3xl font-black tracking-tighter leading-tight md:text-5xl lg:text-6xl">
+            Bangalore's Trusted{" "}
+            <span className="text-emerald-400">Pharmaceutical Partner</span>
+          </h1>
+
           {/* Bangalore HQ Trust Badge */}
-          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full bg-slate-800/80 px-4 py-2 text-xs font-bold text-emerald-400 border border-emerald-500/30 backdrop-blur-sm">
-            <MapPin className="h-3.5 w-3.5" />
+          <div className="mx-auto mb-6 inline-flex items-center gap-1.5 rounded-full bg-slate-800/60 px-3 py-1.5 text-[10px] font-semibold text-emerald-400 border border-emerald-500/20 backdrop-blur-sm">
+            <MapPin className="h-3 w-3" />
             {config.marketingLabel}
           </div>
 
-          {/* Healthcare Headline */}
-          <h2 className="mb-6 text-2xl font-extrabold leading-tight md:text-4xl lg:text-5xl">
-            Quality Pharmaceuticals for{" "}
-            <span className="text-emerald-400">Health & Wellness.</span>
-          </h2>
-
-           <p className="mx-auto mb-10 max-w-2xl text-base text-slate-300 md:text-lg">
-            Every MEDULON box carries our Bangalore address — because trust should never be hidden.
+          {/* Trust Sentence */}
+          <p className="mx-auto mb-10 max-w-xl text-base text-slate-300 md:text-lg md:max-w-2xl">
+            Quality pharmaceutical products for healthcare professionals, pharmacies, and distributors across India.
           </p>
 
           {/* Dual CTA System - Mobile-First */}
           <div className="flex w-full flex-col items-stretch justify-center gap-4 md:flex-row md:items-center">
             <Button
               size="lg"
-              className="h-14 w-full bg-emerald-500 px-8 text-base font-bold text-slate-950 hover:bg-emerald-400 md:w-auto md:px-10 md:text-lg"
+              className="h-12 w-full bg-emerald-500 px-8 text-base font-bold text-slate-950 hover:bg-emerald-400 md:w-auto md:px-10 md:text-lg"
               onClick={() =>
                 document
-                  .getElementById("store")
+                  .getElementById("products")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
               <Pill className="mr-2 h-5 w-5" />
-              Browse Medical Store
+              Browse Products
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
 
             <Button
               size="lg"
               variant="outline"
-              className="h-14 w-full border-white/20 bg-white/5 px-8 text-base font-bold text-white hover:bg-white hover:text-slate-950 md:w-auto md:px-10 md:text-lg"
+              className="h-12 w-full border-white/20 bg-white/5 px-8 text-base font-bold text-white hover:bg-white hover:text-slate-950 md:w-auto md:px-10 md:text-lg"
               onClick={() =>
                 document
                   .getElementById("contact")
@@ -116,7 +100,7 @@ export function Hero() {
           </div>
 
           {/* Quick Info Bar - Trust Signals */}
-          <div className="mt-14 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold text-slate-400 md:gap-x-8">
+          <div className="mt-10 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-semibold text-slate-400 md:gap-x-8 md:text-sm">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-emerald-500" />
               <span>Quality Medicines</span>
