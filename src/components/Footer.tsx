@@ -18,9 +18,9 @@ export function Footer() {
                 alt="MEDULON PHARMA Logo"
                 className="h-10 w-auto"
               />
-              <span className="text-xl font-black tracking-tighter text-white">
+              {/* <span className="text-xl font-black tracking-tighter text-white">
                 MEDULON PHARMA
-              </span>
+              </span> */}
             </div>
             <p className="text-slate-400 leading-relaxed text-sm">
               <span className="text-emerald-500 font-bold">
@@ -64,7 +64,7 @@ export function Footer() {
               Navigation
             </h3>
             <ul className="flex flex-col gap-4 text-slate-400 text-sm">
-              {["Store", "About", "Contact"].map((item) => (
+              {["Products", "About", "Contact"].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
@@ -91,7 +91,9 @@ export function Footer() {
             <div className="flex flex-col gap-5 text-slate-400 text-sm">
               <div className="flex items-start gap-3">
                 <MapPin className="text-emerald-500 shrink-0 h-5 w-5" />
-                <span className="leading-relaxed">{config.marketingAddress}</span>
+                <span className="leading-relaxed">
+                  {config.marketingAddress}
+                </span>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="text-emerald-500 shrink-0 h-5 w-5 mt-0.5" />
@@ -126,11 +128,9 @@ export function Footer() {
         {/* Column 4: Call to Action */}
         <Reveal>
           <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
-            <h3 className="text-white font-bold mb-3 text-lg">
-              Get In Touch
-            </h3>
+            <h3 className="text-white font-bold mb-3 text-lg">Get In Touch</h3>
             <p className="text-slate-400 text-xs mb-5 leading-relaxed">
-              For product inquiries, orders, or partnership opportunities.
+              For product inquiries, distribution, or partnership opportunities.
             </p>
             <a
               href="#contact"
