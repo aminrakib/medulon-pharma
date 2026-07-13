@@ -64,7 +64,7 @@ export function Footer() {
               Navigation
             </h3>
             <ul className="flex flex-col gap-4 text-slate-400 text-sm">
-              {["Products", "About", "Contact"].map((item) => (
+              {["Products", "About", "FAQ", "Contact"].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
