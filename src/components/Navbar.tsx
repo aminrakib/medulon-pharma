@@ -94,7 +94,7 @@ export function Navbar() {
           {/* Direct Mobile Contact */}
           <div className="mt-auto space-y-4 rounded-3xl bg-slate-50 p-6">
             <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-              Medical Support
+              Contact Us
             </p>
 
             {/* Phone Numbers Grouped */}
