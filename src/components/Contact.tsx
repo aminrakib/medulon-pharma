@@ -49,9 +49,9 @@ export function Contact() {
               <h2 className="mb-2 text-sm font-bold tracking-[0.3em] uppercase text-emerald-600">
                 Get In Touch
               </h2>
-              <h1 className="text-3xl font-black tracking-tighter text-slate-900 md:text-4xl lg:text-5xl">
+              <h2 className="text-3xl font-black tracking-tighter text-slate-900 md:text-4xl lg:text-5xl">
                 Contact MEDULON PHARMA
-              </h1>
+              </h2>
               <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-emerald-500" />
             </div>
           </Reveal>

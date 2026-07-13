@@ -224,7 +224,7 @@ export function StorePreview() {
                 <div className="relative h-56 w-full overflow-hidden bg-slate-100 md:h-64">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={`${product.name} by MEDULON PHARMA - ${product.composition}`}
                     loading="lazy"
                     className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                   />
