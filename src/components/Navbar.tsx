@@ -33,7 +33,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-emerald-600 transition-colors"
+              className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-emerald-600 transition-colors"
             >
               {link.name}
             </a>
@@ -83,7 +83,7 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-between border-b border-slate-50 py-5 text-xl font-black text-slate-600"
+                className="flex items-center justify-between border-b border-slate-50 py-5 text-xl font-bold text-slate-600"
               >
                 {link.name}
                 <ChevronRight className="h-6 w-6 text-emerald-500" />
@@ -92,24 +92,24 @@ export function Navbar() {
           </nav>
 
           {/* Direct Mobile Contact */}
-          <div className="mt-auto space-y-4 rounded-3xl bg-slate-50 p-6">
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
+          <div className="mt-auto space-y-4 rounded-3xl bg-slate-50 p-6 border-t border-slate-100 pt-6">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
               Contact Us
             </p>
 
             {/* Phone Numbers Grouped */}
-            <div className="flex items-start gap-4">
-              <Phone className="h-5 w-5 mt-1 text-emerald-500" />
+            <div className="flex items-center gap-4">
+              <Phone className="h-5 w-5 text-emerald-500" />
               <div className="flex flex-col space-y-2">
                 <a
                   href={`tel:${config.orgPhoneNumber}`}
-                  className="text-lg font-bold text-slate-950 leading-none"
+                  className="text-base font-bold text-slate-950 leading-none"
                 >
                   {config.orgPhoneNumber}
                 </a>
                 {/* <a
                   href={`tel:${config.orgAltPhoneNumber}`}
-                  className="text-lg font-bold text-slate-950 leading-none"
+                  className="text-base font-bold text-slate-950 leading-none"
                 >
                   {config.orgAltPhoneNumber}
                 </a> */}
@@ -119,9 +119,9 @@ export function Navbar() {
             {/* Email Support */}
             <a
               href={`mailto:${config.orgEmail}`}
-              className="flex items-center gap-4 text-lg font-bold text-slate-950"
+              className="flex items-center gap-4 text-base font-bold text-slate-950"
             >
-              <Mail className="h-5 w-5 text-emerald-500" /> {config.orgEmail}
+              <Mail className="h-6 w-6 text-emerald-500" /> {config.orgEmail}
             </a>
           </div>
         </div>
